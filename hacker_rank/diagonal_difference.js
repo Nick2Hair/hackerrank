@@ -26,14 +26,6 @@ function diagonalDifference(arr) {
             }
         }
     }
-    // for(var i=0; i<l; i++) {
-    //     for(var j=l-1; j>=0; j--) {
-    //         if(j+i===l-1) {
-    //             negArr.push(arr[i][j]);
-    //         }
-    //     }
-    // }
-
 
    var pos = posArr.reduce((acc, val) => acc + val);
    var neg = negArr.reduce((acc, val) => acc + val);
@@ -50,3 +42,5 @@ function diagonalDifference(arr) {
 
 
 diagonalDifference(arr);
+
+//complete
