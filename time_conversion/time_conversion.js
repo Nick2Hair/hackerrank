@@ -1,4 +1,4 @@
-const str = '07:05:45pm';
+const str = '12:05:45pm';
 
 
 
@@ -30,14 +30,23 @@ const timeConversion = (str) => {
 };
 
 const constructStrAM = (hours, mins, secs) => {
-    let resultSecs = secs.replace(/am/ig , '');
-   let result = '0'+hours.toString()+":"+mins+":"+resultSecs;
-    return result;
+    return constructStr(hours, mins, secs);
 };
 
 const constructStrPM = (hours, mins, secs) => {
-    let resultSecs = secs.replace(/pm/ig , '');
-    let result = hours.toString()+":"+mins+":"+resultSecs;
+    return constructStr(hours, mins, secs);
+};
+
+const constructStr = (hours, mins, secs) => {
+    let resultHrs = hours.toString();
+    let resultSecs;
+    if(/am/ig.test(secs)) {
+        resultHrs = '0'+ resultHrs;
+        resultSecs = secs.replace(/am/ig , ''); 
+    }else {
+        resultSecs = secs.replace(/pm/ig , '');
+    }
+    let result = resultHrs+":"+mins+":"+resultSecs;
     return result;
 };
 
@@ -45,5 +54,5 @@ let result = timeConversion(str);
 
 console.log(result);
 
-//completed
+//completed and refactored
 
